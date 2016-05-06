@@ -1,0 +1,34 @@
+<suite name="Balance Diff" parallel="classes">
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+        <listener class-name="tests.Listener"/>
+    </listeners>
+    <test name="Real mode" preserve-order="true">
+        <groups>
+            <run>
+                <!--<include name="real"/>-->
+                <exclude name="fun"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.Testik"/>
+        </classes>
+    </test>
+    <test name="Fun mode" preserve-order="true">
+        <groups>
+            <run>
+                <!--<include name="fun"/>-->
+                <exclude name="real"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.Testik"/>
+        </classes>
+    </test>
+    <!--<test name="test1" preserve-order="true">
+        <classes>
+            <class name="tests.Testik"/>
+        </classes>
+    </test>-->
+</suite>
