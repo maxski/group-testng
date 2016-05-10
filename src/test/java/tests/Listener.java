@@ -25,7 +25,9 @@ public class Listener implements org.testng.ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         System.setProperty("org.uncommons.reportng.escape-output", "false");
-        Reporter.log("<br/><a href=../../" + getScreenshot(result.getName() + ++i) + " color='red'>click to open screenshot</a>", true);
+        Reporter.setEscapeHtml(false);
+        Reporter.log("<br/><a href=../../" + getScreenshot(result.getName() + ++i) + " color='red'>click to open screenshot</a>", false);
+        Reporter.log("false ");
     }
 
     public String getScreenshot(String name){
@@ -41,7 +43,10 @@ public class Listener implements org.testng.ITestListener {
 
 
     @Override
-    public void onTestSuccess(ITestResult iTestResult) {
+    public void onTestSuccess(ITestResult result) {
+        Reporter.setEscapeHtml(false);
+        Reporter.log("<br/><a href=../../" + getScreenshot(result.getName() + ++i) + " color='red'>click to open screenshot</a>", false);
+        Reporter.log("false ");
 
     }
 
